@@ -1,0 +1,352 @@
+:root{
+  /* Colores espacio (modo noche por defecto) */
+  --bg:#0a0d14;
+  --ink:#f3f6fa;
+  --muted:#a7b0c0;
+  --card:#0f1420;
+
+  --accent:#e4c978;   /* champagne */
+  --accent-2:#bfa25c; /* champagne profundo */
+  --accent-3:#7f8cff; /* acento frío sutil */
+
+  --radius:16px;
+  --shadow: 0 12px 32px rgba(0,0,0,.45);
+
+  --font-main:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-title:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-main);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img,
+svg{
+  max-width:100%;
+  display:block;
+}
+
+/* Layout base */
+.container{
+  width:min(1100px, 92%);
+  margin-inline:auto;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:linear-gradient(180deg, rgba(10,13,20,.9),rgba(10,13,20,.5));
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid #1b2433;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.logo{
+  font-family:var(--font-title);
+  font-weight:800;
+  font-size:1.2rem;
+  letter-spacing:.08em;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.brandname{
+  font-weight:700;
+  color:var(--muted);
+}
+
+.menu{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.btn.small{
+  padding:.5rem .75rem;
+  border-radius:10px;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  display:grid;
+  place-items:center;
+  padding:88px 0 64px;
+  min-height:72vh;
+  isolation:isolate;
+}
+
+.hero__content{
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#121212;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+
+h1{
+  font-family:var(--font-title);
+  font-weight:800;
+  font-size:clamp(2rem, 4vw + .2rem, 3.5rem);
+  margin:16px 0 6px;
+  letter-spacing:.04em;
+}
+
+.outline{
+  position:relative;
+  text-shadow: 0 0 18px rgba(228,201,120,.22);
+}
+
+.lead{
+  color:var(--muted);
+  font-size:clamp(1rem, .9vw + .7rem, 1.2rem);
+}
+
+/* CTA */
+.cta{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:160px;
+  min-height:46px;
+  padding:.9rem 1.2rem;
+  border-radius:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .2s ease, filter .2s ease, background .3s ease;
+}
+
+.btn--primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#151515;
+  box-shadow:0 10px 28px rgba(191,162,92,.28);
+}
+
+.btn--primary:hover{
+  filter:brightness(1.06);
+  transform:translateY(-2px);
+}
+
+.btn--ghost{
+  border:1px solid #2a3447;
+  background:#0f1420;
+  color:var(--ink);
+}
+
+.btn--ghost:hover{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(228,201,120,.2) inset;
+}
+
+/* Mensajes */
+.scan-msg{
+  margin-top:12px;
+  color:var(--accent-3);
+  min-height:24px;
+}
+
+/* Starfield + galaxia de fondo */
+.space{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("img/galaxia.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Nebulosa / galaxia de fondo */
+.space::before{
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.55), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255, 120, 180, 0.45), transparent 60%),
+    radial-gradient(circle at 50% 110%, rgba(0, 180, 255, 0.35), transparent 60%);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Marte, astronauta y cohete */
+.mars{
+  position:absolute;
+  right:-120px;
+  bottom:-140px;
+  width:min(46vw,560px);
+  filter:drop-shadow(0 40px 80px rgba(255,120,60,.15));
+}
+
+.astronaut{
+  position:absolute;
+  left:6vw;
+  top:18vh;
+  width:min(22vw,220px);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(-10px) rotate(-6deg);
+  }
+  50%{
+    transform:translateY(10px) rotate(-10deg);
+  }
+}
+
+.rocket{
+  position:absolute;
+  left:10vw;
+  bottom:12vh;
+  width:min(10vw,120px);
+  transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.rocket.launch{
+  transform:translate(50vw,-80vh) rotate(8deg);
+}
+
+.rocket .flame{
+  transform-origin:40px 150px;
+  animation: flame .2s infinite alternate;
+}
+
+@keyframes flame{
+  from{transform:scaleY(.9);}
+  to{transform:scaleY(1.1);}
+}
+
+/* Footer */
+.site-footer{
+  padding:24px 0;
+  border-top:1px solid #1b2433;
+  color:var(--muted);
+  text-align:center;
+}
+
+.site-footer .group{
+  opacity:.9;
+}
+
+/* ===== MODO DÍA (claro) ===== */
+html.light{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --ink:#12151c;
+  --muted:#5a6070;
+  --shadow:0 10px 24px rgba(0,0,0,.08);
+}
+
+html.light .site-header{
+  background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.65));
+  border-bottom:1px solid #e5e7ef;
+}
+
+html.light .btn--ghost{
+  background:#ffffff;
+  border-color:#dde1ee;
+  color:var(--ink);
+}
+
+html.light .btn--ghost:hover{
+  background:#f3f5fb;
+  border-color:var(--accent);
+}
+
+html.light .badge{
+  color:#191919;
+}
+
+html.light .space{
+  filter:saturate(.95) brightness(1.05);
+}
+
+html.light .mars{
+  filter:drop-shadow(0 40px 80px rgba(255,120,60,.25));
+}
+
+html.light .scan-msg{
+  color:#4e5cff;
+}
+
+html.light .site-footer{
+  border-top:1px solid #e5e7ef;
+  color:#6b7280;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .astronaut{
+    left:2vw;
+    top:auto;
+    bottom:26vh;
+  }
+
+  .rocket{
+    left:6vw;
+    bottom:10vh;
+  }
+}
+
+@media (max-width: 620px){
+  .btn{
+    min-width:140px;
+  }
+
+  .mars{
+    right:-180px;
+    bottom:-180px;
+    width:80vw;
+  }
+
+  .astronaut{
+    width:36vw;
+  }
+}

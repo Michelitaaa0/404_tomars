@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>404 to Mars — Página no encontrada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="404 to Mars · Semana de Marte (Hackatón web).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- CAPA DE FONDO (galaxia) ✅ -->
+  <div class="space" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Volver al inicio">
+        <span class="logo">404</span>
+        <span class="brandname">to Mars</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <button id="theme-toggle" class="btn btn--ghost" aria-label="Cambiar tema">🌙</button>
+        <a class="btn btn--ghost small" href="https://adrian-cano-udit.github.io/404s-to-mars/" target="_blank" rel="noopener">Ejemplo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Planeta Marte (SVG ARREGLADO, sin svg duplicado) ✅ -->
+  <svg class="mars" viewBox="0 0 400 400" role="img" aria-label="Planeta Marte">
+    <!-- Marte base -->
+    <circle cx="200" cy="200" r="180" fill="#d96448"/>
+
+    <!-- sombras simples -->
+    <circle cx="160" cy="160" r="140" fill="#c6533c" opacity="0.55"/>
+    <circle cx="240" cy="230" r="120" fill="#b94b35" opacity="0.35"/>
+
+    <!-- cráteres -->
+    <circle cx="140" cy="150" r="32" fill="#a84330" opacity="0.65"/>
+    <circle cx="260" cy="240" r="24" fill="#a84330" opacity="0.55"/>
+    <circle cx="230" cy="120" r="18" fill="#a84330" opacity="0.45"/>
+  </svg>
+
+  <!-- Astronauta flotando -->
+  <svg class="astronaut" viewBox="0 0 120 160" role="img" aria-label="Astronauta a la deriva">
+    <g transform="translate(10,10)">
+      <rect x="35" y="0" width="40" height="40" rx="8" fill="#dfe7ef" stroke="#9aa6b2" stroke-width="3"/>
+      <rect x="45" y="10" width="20" height="16" rx="4" fill="#2b3a4a"/>
+      <rect x="30" y="44" width="50" height="60" rx="10" fill="#e9eef4" stroke="#b9c3ce" stroke-width="3"/>
+      <rect x="24" y="52" width="12" height="34" rx="6" fill="#e9eef4" stroke="#b9c3ce" stroke-width="3"/>
+      <rect x="74" y="52" width="12" height="34" rx="6" fill="#e9eef4" stroke="#b9c3ce" stroke-width="3"/>
+      <rect x="36" y="106" width="12" height="30" rx="6" fill="#e9eef4" stroke="#b9c3ce" stroke-width="3"/>
+      <rect x="62" y="106" width="12" height="30" rx="6" fill="#e9eef4" stroke="#b9c3ce" stroke-width="3"/>
+      <!-- tether -->
+      <path d="M5,80 C-20,60 -20,120 10,130" fill="none" stroke="#9aa6b2" stroke-width="3" />
+    </g>
+  </svg>
+
+  <!-- Cohete -->
+  <svg class="rocket" viewBox="0 0 80 160" role="img" aria-label="Cohete">
+    <g>
+      <path d="M40 0 C50 20 58 60 58 90 L22 90 C22 60 30 20 40 0Z" fill="#e4c978" stroke="#bfa25c" stroke-width="3"/>
+      <rect x="30" y="34" width="20" height="20" rx="4" fill="#1b2230"/>
+      <path d="M22 90 L10 110 L22 110Z" fill="#c0392b"/>
+      <path d="M58 90 L70 110 L58 110Z" fill="#c0392b"/>
+      <path d="M22 110 L58 110 L40 150 Z" fill="#d35400"/>
+      <g class="flame">
+        <path d="M40 150 C34 165 46 165 40 180 C52 170 28 170 40 150Z" fill="#ffad33"/>
+      </g>
+    </g>
+  </svg>
+
+  <main class="hero">
+    <div class="container hero__content">
+      <span class="badge">404 — Coordenadas desconocidas</span>
+      <h1><span class="outline">Página no encontrada</span></h1>
+      <p class="lead">Parece que has aterrizado fuera de ruta. Nuestro rover no encuentra esta página en Marte.</p>
+
+      <div class="cta">
+        <a href="./" class="btn btn--primary">Volver al inicio</a>
+        <button id="scan" class="btn btn--ghost">Escanear área</button>
+        <button id="launch" class="btn btn--primary">Lanzar cohete</button>
+      </div>
+
+      <div id="scan-result" class="scan-msg" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Semana de Marte · Hackatón web — 404 to Mars</p>
+      <p class="group">Equipo: Michela Santilli</p>
+    </div>
+  </footer>
+</body>
+</html>
